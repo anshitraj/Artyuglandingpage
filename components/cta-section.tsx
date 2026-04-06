@@ -1,93 +1,80 @@
-'use client'
+"use client"
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { ArrowRight, Sparkles, Download } from 'lucide-react'
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { ArrowRight, Download } from "lucide-react"
 
 export default function CTASection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: true })
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-gradient-to-b from-background via-purple-50/10 to-background relative">
-      {/* Purple glow effects */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl" />
-      </div>
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ scale: 1.02 }}
-          className="max-w-4xl mx-auto bg-gradient-to-br from-purple-600 via-primary via-secondary to-purple-500 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-2xl shadow-purple-500/20"
-        >
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-          
-          <div className="relative z-10 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-medium text-white"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Limited Early Access</span>
-            </motion.div>
-
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white text-balance"
-            >
-              Ready to Find Your Creative Home?
-            </motion.h2>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto text-pretty leading-relaxed"
-            >
-              Join Artyug today and connect with a community that values depth, 
-              beauty, and thoughtful expression. Your creative journey starts here.
-            </motion.p>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
-            >
-              <Button 
-                size="lg" 
-                variant="secondary" 
-                className="text-lg px-8 py-6 group"
-                asChild
+    <section ref={ref} className="bg-[#F5F1EC] py-20 md:py-28 border-t border-[#E2DDD8]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="label-tag mb-4">Start for Free</p>
+            <h2 className="display-section text-[#0A0A0A] mb-6">
+              Your art<span className="text-[#E8470A]">.</span><br />
+              Your proof<span className="text-[#E8470A]">.</span><br />
+              Your legacy<span className="text-[#E8470A]">.</span>
+            </h2>
+            <p className="text-[#6B6560] text-sm leading-relaxed max-w-sm mb-8">
+              Join hundreds of artists already building on Artyug.
+              No platform fees to start. No gatekeepers. Just your work and your community.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://app.artyug.art/#/sign-up"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
               >
-                <a href="/artyugapp-release.apk" download="artyugapp-release.apk">
-                  Download APK for Android
-                  <Download className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
-                </a>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-6 bg-white/10 border-white/20 text-white hover:bg-white/20"
-                asChild
+                Join as Creator <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="/artyugapp-release.apk"
+                download="artyugapp-release.apk"
+                className="btn-outline"
               >
-                <a href="https://app.artyug.art/#/sign-in" target="_blank" rel="noopener noreferrer">
-                  Explore on Web
-                </a>
-              </Button>
-            </motion.div>
-          </div>
-        </motion.div>
+                <Download className="w-4 h-4" /> Download Android APK
+              </a>
+            </div>
+            <p className="text-[#6B6560] text-xs mt-4">
+              Free to join · Available on Android &amp; Web · iOS coming soon
+            </p>
+          </motion.div>
+
+          {/* Right — step list */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex flex-col gap-4"
+          >
+            {[
+              { step: "01", title: "Create Your Profile", body: "Sign up free. Choose your creator type. Set your city and artistic style." },
+              { step: "02", title: "List or Discover Art", body: "Post artworks with price, medium, and size. Collectors browse and connect directly." },
+              { step: "03", title: "Sell Securely", body: "Direct artist-to-collector transactions. Demo mode lets you test the full flow risk-free." },
+              { step: "04", title: "Get Your Certificate", body: "Every sale generates a QR + blockchain certificate of authenticity. Yours forever." },
+            ].map((s, i) => (
+              <div key={i} className="flex items-start gap-5 group">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#EAE5DF] flex items-center justify-center group-hover:bg-[#E8470A] transition-colors duration-300">
+                  <span className="text-xs font-black text-[#0A0A0A] group-hover:text-white transition-colors">{s.step}</span>
+                </div>
+                <div>
+                  <p className="font-bold text-[#0A0A0A] text-sm">{s.title}</p>
+                  <p className="text-[#6B6560] text-xs leading-relaxed mt-1">{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   )

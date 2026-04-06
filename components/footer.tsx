@@ -1,169 +1,135 @@
 "use client"
 
-import { Heart, Instagram, Twitter, Linkedin, Facebook } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+
+const footerLinks = {
+  Platform: [
+    { label: "Web App", href: "https://app.artyug.art", external: true },
+    { label: "Android APK", href: "/artyugapp-release.apk", download: true },
+    { label: "Art Marketplace", href: "https://app.artyug.art/#/browse", external: true },
+    { label: "Auctions", href: "https://app.artyug.art/#/auctions", external: true },
+    { label: "Communities", href: "https://app.artyug.art/#/communities", external: true },
+  ],
+  Creators: [
+    { label: "Join as Artist", href: "https://app.artyug.art/#/sign-up", external: true },
+    { label: "Authenticity", href: "#authenticity", external: false },
+    { label: "NFC Certificates", href: "https://app.artyug.art/#/authenticity", external: true },
+    { label: "Events", href: "https://app.artyug.art/#/events", external: true },
+    { label: "Guilds", href: "https://app.artyug.art/#/communities", external: true },
+  ],
+  Company: [
+    { label: "About", href: "/about", external: false },
+    { label: "Careers", href: "/careers", external: false },
+    { label: "Contact", href: "mailto:hello@artyug.art", external: true },
+    { label: "Privacy Policy", href: "/privacy", external: false },
+    { label: "Webcoin Labs", href: "https://webcoinlabs.com", external: true },
+  ],
+}
 
 export default function Footer() {
-  const handleLinkClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
-
   return (
-    <footer className="bg-[#1a0b2e] text-white pt-12 md:pt-20 pb-24 md:pb-8 overflow-hidden relative">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-12 md:mb-20">
-          <div className="sm:col-span-2 md:col-span-5 space-y-6">
-            <Link href="/" className="inline-block">
-              <Image 
-                src="/artyugLOGO.png" 
-                alt="Artyug Logo" 
-                width={200} 
-                height={67} 
-                className="h-12 md:h-16 lg:h-20 w-auto"
-              />
-            </Link>
-            <p className="text-white/60 leading-relaxed max-w-md text-sm md:text-base">
-              A home for those who seek depth, beauty, and thoughtful expression. Connect, create, and collaborate with
-              the most imaginative minds.
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="sm:col-span-1 md:col-span-2 md:col-start-7">
-            <h4 className="font-serif text-base md:text-lg font-semibold mb-4 md:mb-6 text-primary-foreground">
-              Platform
-            </h4>
-            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-white/60">
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  NFT Marketplace
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Workshops
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="sm:col-span-1 md:col-span-2">
-            <h4 className="font-serif text-base md:text-lg font-semibold mb-4 md:mb-6 text-primary-foreground">
-              Community
-            </h4>
-            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-white/60">
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Artists
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Authors
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Events
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="sm:col-span-1 md:col-span-2">
-            <h4 className="font-serif text-base md:text-lg font-semibold mb-4 md:mb-6 text-primary-foreground">
-              Company
-            </h4>
-            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-white/60">
-              <li>
-                <Link
-                  href="/about"
-                  onClick={handleLinkClick}
-                  className="hover:text-primary-foreground transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  onClick={handleLinkClick}
-                  className="hover:text-primary-foreground transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary-foreground transition-colors">
-                  Privacy
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-white/10 py-6 md:py-8 flex flex-col gap-4 md:gap-0 md:flex-row md:justify-between md:items-center text-xs md:text-sm text-white/40">
-          <p>© 2025 Artyug. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            Made with <Heart className="w-4 h-4 text-primary fill-primary" /> for creative minds
+    <footer className="bg-[#0A0A0A] text-white">
+      {/* Main footer */}
+      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-10">
+        {/* Brand */}
+        <div className="md:col-span-4">
+          <Link href="/" className="inline-block mb-4">
+            <span className="font-black text-2xl text-white tracking-tight">
+              ARTYUG<span className="text-[#E8470A]">.</span>
+            </span>
+          </Link>
+          <p className="text-[#6B6560] text-sm leading-relaxed max-w-xs mb-6">
+            The operating system for trusted art commerce. Built for creators who
+            want to sell, authenticate, and build their legacy.
           </p>
+          <div className="flex gap-3">
+            <a
+              href="https://www.instagram.com/artyug.art"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#E8470A] hover:text-[#E8470A] text-[#6B6560] transition-all duration-200 text-xs font-bold"
+            >
+              IG
+            </a>
+            <a
+              href="https://twitter.com/artyug_art"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#E8470A] hover:text-[#E8470A] text-[#6B6560] transition-all duration-200 text-xs font-bold"
+            >
+              X
+            </a>
+            <a
+              href="https://linkedin.com/company/artyug"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#E8470A] hover:text-[#E8470A] text-[#6B6560] transition-all duration-200 text-xs font-bold"
+            >
+              LI
+            </a>
+          </div>
         </div>
+
+        {/* Link columns */}
+        {Object.entries(footerLinks).map(([group, links]) => (
+          <div key={group} className="md:col-span-2 md:col-start-auto">
+            <h4 className="text-xs font-bold tracking-widest text-[#6B6560] uppercase mb-5">{group}</h4>
+            <ul className="flex flex-col gap-3">
+              {links.map((link) => (
+                <li key={link.label}>
+                  {link.external ? (
+                    "download" in link ? (
+                      <a
+                        href={link.href}
+                        download
+                        className="text-[#9A9A9A] hover:text-white text-sm transition-colors duration-200"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <a
+                        href={link.href}
+                        target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                        rel="noopener noreferrer"
+                        className="text-[#9A9A9A] hover:text-white text-sm transition-colors duration-200"
+                      >
+                        {link.label}
+                      </a>
+                    )
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-[#9A9A9A] hover:text-white text-sm transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      {/* Massive Gothic Typography Background */}
-      <div className="w-full flex justify-center items-end opacity-10 pointer-events-none select-none absolute bottom-[-5%] left-0 right-0 overflow-hidden">
-        <h1
-          className="text-[60vw] md:text-[25vw] leading-[0.8] text-white whitespace-nowrap"
-          style={{ fontFamily: "var(--font-gothic)" }}
-        >
-          Artyug
-        </h1>
+      {/* Bottom bar */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-[#6B6560]">
+          <p>© 2025 Artyug. All rights reserved.</p>
+          <p>
+            Built with ♥ by{" "}
+            <a
+              href="https://webcoinlabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#E8470A] transition-colors"
+            >
+              Webcoin Labs
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   )

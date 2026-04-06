@@ -1,63 +1,39 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Inter, UnifrakturMaguntia } from "next/font/google"
+import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-})
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-})
-
-const unifrakturMaguntia = UnifrakturMaguntia({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-gothic",
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Artyug - Where Creativity Meets Community",
+  title: "Artyug — The Operating System for Trusted Art Commerce",
   description:
-    "A social community platform for artists and authors. Connect, create, and collaborate with the most imaginative minds. Share work, sell art, host workshops, and build your community.",
-  keywords: "artists, authors, creative community, art platform, NFT, workshops, artistic networking, romanticism",
-  generator: "v0.app",
+    "Sell artwork. Run auctions. Host events. Build guilds. Give collectors blockchain-backed ownership proof. Artyug is where niche creators protect their work and build their legacy.",
+  keywords: "art marketplace, NFT certificates, art auctions, artist platform, blockchain art, NFC art verification, Indian art, art guilds",
   icons: {
     icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
+      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     apple: "/apple-icon.png",
   },
 }
 
 export const viewport = {
-  themeColor: "#6B4699",
+  themeColor: "#E8470A",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -71,7 +47,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} ${playfairDisplay.variable} ${unifrakturMaguntia.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <Navbar />
         {children}
       </body>

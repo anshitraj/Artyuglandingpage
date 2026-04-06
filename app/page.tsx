@@ -1,12 +1,12 @@
-import HeroSection from '@/components/hero-section'
-import FeaturesSection from '@/components/features-section'
-import CommunitySection from '@/components/community-section'
-import CTASection from '@/components/cta-section'
-import Footer from '@/components/footer'
+import HeroSection from "@/components/hero-section"
+import FeaturesSection from "@/components/features-section"
+import CommunitySection from "@/components/community-section"
+import CTASection from "@/components/cta-section"
+import Footer from "@/components/footer"
 
-export default function Page() {
+export default function HomePage() {
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-background via-purple-50/5 to-background">
+    <main>
       <HeroSection />
       <FeaturesSection />
       <CommunitySection />
