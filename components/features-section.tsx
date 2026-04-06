@@ -62,45 +62,73 @@ export default function FeaturesSection() {
     <>
       {/* ── THE PROBLEM SECTION ── */}
       <section ref={problemRef} className="bg-[#F5F1EC] py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={problemInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mb-12"
+            className="mb-12 md:mb-16 lg:mb-20"
           >
-            <p className="label-tag mb-4">The Problem</p>
-            <h2 className="display-section text-[#0A0A0A]">
-              Five problems<span className="text-[#E8470A]">.</span><br />
+            <p className="label-tag mb-4 text-center lg:text-left">The Problem</p>
+            <h2 className="display-section mx-auto max-w-4xl text-center text-[#0A0A0A] lg:mx-0 lg:max-w-none lg:text-left">
+              Five problems<span className="text-[#E8470A]">.</span>
+              <br />
               One platform<span className="text-[#E8470A]">.</span>
             </h2>
-            <p className="text-[#6B6560] mt-4 max-w-lg text-sm leading-relaxed">
-              The art world is broken for independent creators. Here's what Artyug fixes.
+            <p className="mx-auto mt-5 max-w-2xl text-center text-sm leading-relaxed text-[#6B6560] md:text-base lg:mx-0 lg:max-w-xl lg:text-left">
+              The art world is broken for independent creators. Here&apos;s what Artyug fixes.
             </p>
           </motion.div>
 
-          <div className="flex flex-col gap-3 max-w-4xl">
+          <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
             {problems.map((item, i) => {
               const Icon = item.icon
+              const isLast = i === problems.length - 1
               return (
-                <motion.div
+                <motion.article
                   key={i}
-                  className="problem-row"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={problemInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={problemInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  className={
+                    isLast
+                      ? "flex justify-center lg:col-span-2"
+                      : undefined
+                  }
                 >
                   <div
-                    className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{ background: "#FFF3EF" }}
+                    className={[
+                      "group relative w-full overflow-hidden rounded-2xl border border-[#E2DDD8] bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 sm:p-6",
+                      "hover:-translate-y-0.5 hover:border-[#E8470A]/35 hover:shadow-[0_12px_40px_-12px_rgba(232,71,10,0.12),0_4px_16px_rgba(0,0,0,0.06)]",
+                      isLast ? "lg:max-w-3xl" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
                   >
-                    <Icon className="w-4 h-4 text-[#E8470A]" />
+                    <div
+                      className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-[#E8470A] to-[#E8470A]/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      aria-hidden
+                    />
+                    <div className="relative flex gap-4 sm:gap-5">
+                      <div className="flex shrink-0 flex-col items-center gap-2">
+                        <span className="font-mono text-[10px] font-bold tabular-nums text-[#E8470A]/80">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FFF3EF] ring-1 ring-[#E8470A]/10 transition-transform duration-300 group-hover:scale-[1.03] sm:h-12 sm:w-12">
+                          <Icon className="h-5 w-5 text-[#E8470A] sm:h-[22px] sm:w-[22px]" strokeWidth={1.75} />
+                        </div>
+                      </div>
+                      <div className="min-w-0 flex-1 pt-0.5">
+                        <h3 className="text-base font-bold leading-snug tracking-tight text-[#0A0A0A] sm:text-[1.05rem]">
+                          {item.problem}
+                        </h3>
+                        <p className="mt-2.5 text-sm leading-relaxed text-[#6B6560] sm:mt-3 sm:text-[0.9375rem]">
+                          {item.solution}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 flex-1 min-w-0">
-                    <p className="font-bold text-[#0A0A0A] text-sm sm:w-64 flex-shrink-0">{item.problem}</p>
-                    <p className="text-[#6B6560] text-sm leading-relaxed">{item.solution}</p>
-                  </div>
-                </motion.div>
+                </motion.article>
               )
             })}
           </div>

@@ -164,6 +164,29 @@
   color: #FFFFFF;
 }
 
+/* Solid white CTA — reference: high-contrast “Download app” blocks */
+.btn-download-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  color: #0A0A0A;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid #0A0A0A;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.btn-download-app:hover {
+  background: #F5F5F5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
 .btn-orange {
   display: inline-flex;
   align-items: center;
@@ -182,22 +205,6 @@
 .btn-orange:hover {
   background: #D63E07;
   transform: translateY(-1px);
-}
-
-/* Problem row card */
-.problem-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  background: #FFFFFF;
-  transition: all 0.2s ease;
-}
-.problem-row:hover {
-  border-color: var(--primary);
-  box-shadow: 0 2px 12px rgba(232, 71, 10, 0.08);
 }
 
 /* Dashboard card mockup */
