@@ -5,7 +5,11 @@ import Link from "next/link"
 const footerLinks = {
   Platform: [
     { label: "Web App", href: "https://app.artyug.art", external: true },
-    { label: "Android APK", href: "/artyugapp-release.apk", download: true },
+    {
+      label: "Android APK",
+      href: "https://drive.google.com/file/d/1TD9AOyJY8aUmuHqCIBR2ZJKJ2itwoOM6/view?usp=sharing",
+      external: true,
+    },
     { label: "Art Marketplace", href: "https://app.artyug.art/#/browse", external: true },
     { label: "Auctions", href: "https://app.artyug.art/#/auctions", external: true },
     { label: "Communities", href: "https://app.artyug.art/#/communities", external: true },
