@@ -78,8 +78,9 @@ export default function Navbar() {
               Sign In
             </a>
             <a
-              href="/artyugapp-release.apk"
-              download="artyugapp-release.apk"
+              href="https://drive.google.com/file/d/1-DxqdiizUz6j1Gu0dFbl61SY7PZ64upo/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#E8470A] text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-[#D63E07] transition-all duration-200 hover:shadow-md"
             >
               Download APK
@@ -136,9 +137,10 @@ export default function Navbar() {
                 Sign In
               </a>
               <a
-                href="/artyugapp-release.apk"
-                download="artyugapp-release.apk"
-              className="btn-orange text-center justify-center"
+                href="https://drive.google.com/file/d/1-DxqdiizUz6j1Gu0dFbl61SY7PZ64upo/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-orange text-center justify-center"
               >
                 Download APK
               </a>

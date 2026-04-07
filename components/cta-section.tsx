@@ -38,8 +38,9 @@ export default function CTASection() {
                 Join as Creator <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="/artyugapp-release.apk"
-                download="artyugapp-release.apk"
+                href="https://drive.google.com/file/d/1-DxqdiizUz6j1Gu0dFbl61SY7PZ64upo/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-outline"
               >
                 <Download className="w-4 h-4" /> Download Android APK
