@@ -7,7 +7,7 @@ const footerLinks = {
     { label: "Web App", href: "https://app.artyug.art", external: true },
     {
       label: "Android APK",
-      href: "https://drive.google.com/file/d/1TD9AOyJY8aUmuHqCIBR2ZJKJ2itwoOM6/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1-DxqdiizUz6j1Gu0dFbl61SY7PZ64upo/view?usp=sharing",
       external: true,
     },
     { label: "Art Marketplace", href: "https://app.artyug.art/#/browse", external: true },

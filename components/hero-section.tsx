@@ -118,7 +118,7 @@ export default function HeroSection() {
                 Join as Creator <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="https://drive.google.com/file/d/1TD9AOyJY8aUmuHqCIBR2ZJKJ2itwoOM6/view?usp=sharing"
+                href="https://drive.google.com/file/d/1-DxqdiizUz6j1Gu0dFbl61SY7PZ64upo/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-download-app"
@@ -433,7 +433,7 @@ export default function HeroSection() {
             Open Web App <ArrowRight className="w-4 h-4" />
           </a>
           <a
-            href="https://drive.google.com/file/d/1TD9AOyJY8aUmuHqCIBR2ZJKJ2itwoOM6/view?usp=sharing"
+            href="https://drive.google.com/file/d/1-DxqdiizUz6j1Gu0dFbl61SY7PZ64upo/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
