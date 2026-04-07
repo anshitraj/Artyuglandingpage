@@ -19,7 +19,6 @@ const footerLinks = {
   ],
   Company: [
     { label: "About", href: "/about", external: false },
-    { label: "Careers", href: "/careers", external: false },
     { label: "Contact", href: "mailto:hello@artyug.art", external: true },
     { label: "Privacy Policy", href: "/privacy", external: false },
     { label: "Webcoin Labs", href: "https://webcoinlabs.com", external: true },
@@ -30,9 +29,9 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] text-white">
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-        {/* Brand */}
-        <div className="md:col-span-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-12">
+        {/* Brand — 3 cols; link groups 3 each → full width on desktop */}
+        <div className="md:col-span-3">
           <Link href="/" className="inline-block mb-4">
             <span className="font-black text-2xl text-white tracking-tight">
               ARTYUG<span className="text-[#E8470A]">.</span>
@@ -75,7 +74,7 @@ export default function Footer() {
 
         {/* Link columns */}
         {Object.entries(footerLinks).map(([group, links]) => (
-          <div key={group} className="md:col-span-2 md:col-start-auto">
+          <div key={group} className="md:col-span-3">
             <h4 className="text-xs font-bold tracking-widest text-[#6B6560] uppercase mb-5">{group}</h4>
             <ul className="flex flex-col gap-3">
               {links.map((link) => (
@@ -117,7 +116,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-[#6B6560]">
-          <p>© 2025 Artyug. All rights reserved.</p>
+          <p>© 2026 Artyug. All rights reserved.</p>
           <p>
             Built with ♥ by{" "}
             <a

@@ -1,8 +1,23 @@
 "use client"
 
 import { useRef, useState, useEffect } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
-import { ArrowRight, Download, TrendingUp, Eye, ShoppingBag, Star, Zap, CheckCircle2, BarChart3, Users } from "lucide-react"
+import { motion, useInView } from "framer-motion"
+import {
+  ArrowRight,
+  Download,
+  TrendingUp,
+  Eye,
+  ShoppingBag,
+  Star,
+  CheckCircle2,
+  Users,
+  Lock,
+  Truck,
+  BadgeCheck,
+  Frame,
+  Banknote,
+  IdCard,
+} from "lucide-react"
 
 /* ─── Phone Carousel images ─── */
 const screenshots = [
@@ -16,6 +31,15 @@ const screenshots = [
 /* ─── Imaginary bar chart data ─── */
 const barData = [40, 65, 45, 80, 60, 90, 75]
 const barLabels = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+
+const trustHighlights: { Icon: typeof Lock; label: string }[] = [
+  { Icon: Lock, label: "Secure Payments" },
+  { Icon: Truck, label: "Specialized Shipping" },
+  { Icon: BadgeCheck, label: "Registered Ownership" },
+  { Icon: Frame, label: "Museum-quality Art" },
+  { Icon: Banknote, label: "Transparent Pricing" },
+  { Icon: IdCard, label: "Verified Community" },
+]
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null)
@@ -43,10 +67,10 @@ export default function HeroSection() {
           TOP: HEADLINE + DASHBOARD (2 col)
       ══════════════════════════════════════ */}
       <div className="max-w-7xl mx-auto px-6 pt-14 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16 items-center min-h-[520px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16 items-start">
 
           {/* LEFT ── Headline + subtitle + CTAs */}
-          <div>
+          <div className="lg:pr-2">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -80,7 +104,7 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-3 mb-10"
+              className="flex flex-wrap gap-3"
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.32 }}
@@ -93,33 +117,10 @@ export default function HeroSection() {
               >
                 Join as Creator <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="https://app.artyug.art/#/communities"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                Explore the Guild
+              <a href="/artyugapp-release.apk" download className="btn-download-app">
+                <Download className="w-4 h-4 shrink-0" />
+                Download the App
               </a>
-            </motion.div>
-
-            <motion.div
-              className="grid grid-cols-2 gap-x-6 gap-y-4"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.45 }}
-            >
-              {[
-                { title: "Shop + Auctions + Guilds", sub: "Creator Stack" },
-                { title: "Minimal Platform Fees", sub: "Fees" },
-                { title: "QR + NFC + On-chain", sub: "Verification Methods" },
-                { title: "Free Android Download", sub: "No App Store needed" },
-              ].map((item, i) => (
-                <div key={i}>
-                  <p className="text-[#0A0A0A] font-bold text-sm">{item.title}</p>
-                  <p className="text-[#6B6560] text-xs mt-0.5">{item.sub}</p>
-                </div>
-              ))}
             </motion.div>
           </div>
 
@@ -128,15 +129,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 36 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="relative w-full min-w-0 max-w-lg mx-auto lg:mx-0 lg:max-w-none"
           >
-            {/* Main dashboard card */}
+            {/* Main dashboard card — top-aligned with left column (no vertical centering gap) */}
             <div
               className="rounded-2xl overflow-hidden border border-[#E2DDD8]"
-              style={{ background: "#FFFFFF", boxShadow: "0 12px 60px rgba(0,0,0,0.1)" }}
+              style={{ background: "#FFFFFF", boxShadow: "0 12px 60px rgba(0,0,0,0.08)" }}
             >
               {/* Dashboard top bar */}
-              <div className="flex items-center justify-between px-5 py-3 border-b border-[#F0EBE5]">
+              <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 border-b border-[#F0EBE5]">
                 <div className="flex items-center gap-2">
                   <span className="font-black text-sm text-[#0A0A0A] tracking-tight">ARTYUG<span className="text-[#E8470A]">.</span></span>
                   <span className="bg-[#F0EBE5] text-[#6B6560] text-[10px] font-bold px-2 py-0.5 rounded-full">Artist Studio</span>
@@ -147,9 +148,9 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="p-5">
+              <div className="p-4 sm:p-5">
                 {/* Top stat row */}
-                <div className="grid grid-cols-3 gap-3 mb-5">
+                <div className="grid grid-cols-3 gap-2 sm:gap-2.5 mb-4">
                   {[
                     { icon: ShoppingBag, label: "Total Sales", value: "₹1,24,000", change: "+18%", up: true },
                     { icon: Eye, label: "Profile Views", value: "8,412", change: "+32%", up: true },
@@ -157,7 +158,7 @@ export default function HeroSection() {
                   ].map((s, i) => {
                     const Icon = s.icon
                     return (
-                      <div key={i} className="bg-[#F9F6F3] rounded-xl p-3">
+                      <div key={i} className="bg-[#F9F6F3] rounded-lg sm:rounded-xl p-2.5 sm:p-3 min-w-0">
                         <div className="flex items-center justify-between mb-2">
                           <Icon className="w-3.5 h-3.5 text-[#E8470A]" />
                           <span className={`text-[9px] font-bold ${s.up ? "text-[#16A34A]" : "text-red-500"}`}>{s.change}</span>
@@ -170,17 +171,17 @@ export default function HeroSection() {
                 </div>
 
                 {/* Chart + recent activity */}
-                <div className="grid grid-cols-5 gap-3 mb-4">
+                <div className="grid grid-cols-5 gap-2 sm:gap-2.5 mb-3">
                   {/* Bar chart */}
-                  <div className="col-span-3 bg-[#F9F6F3] rounded-xl p-3">
-                    <div className="flex items-center justify-between mb-3">
+                  <div className="col-span-3 bg-[#F9F6F3] rounded-lg sm:rounded-xl p-2.5 sm:p-3 min-w-0">
+                    <div className="flex items-center justify-between mb-2 sm:mb-3">
                       <p className="text-xs font-bold text-[#0A0A0A]">Weekly Revenue</p>
                       <div className="flex items-center gap-1">
                         <TrendingUp className="w-3 h-3 text-[#E8470A]" />
                         <span className="text-[10px] font-bold text-[#E8470A]">+24%</span>
                       </div>
                     </div>
-                    <div className="flex items-end gap-1.5 h-16">
+                    <div className="flex items-end gap-1 sm:gap-1.5 h-16">
                       {barData.map((h, i) => (
                         <div key={i} className="flex flex-col items-center flex-1 gap-1">
                           <div
@@ -197,8 +198,8 @@ export default function HeroSection() {
                   </div>
 
                   {/* Recent sold */}
-                  <div className="col-span-2 bg-[#F9F6F3] rounded-xl p-3">
-                    <p className="text-xs font-bold text-[#0A0A0A] mb-2">Recent Sales</p>
+                  <div className="col-span-2 bg-[#F9F6F3] rounded-lg sm:rounded-xl p-2.5 sm:p-3 min-w-0">
+                    <p className="text-xs font-bold text-[#0A0A0A] mb-1.5 sm:mb-2">Recent Sales</p>
                     <div className="flex flex-col gap-2">
                       {[
                         { name: "Monsoon Series", price: "₹4,500" },
@@ -221,7 +222,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Bottom badge + certification row */}
-                <div className="flex items-center justify-between bg-[#FFF3EF] rounded-xl px-4 py-2.5">
+                <div className="flex items-center justify-between gap-2 bg-[#FFF3EF] rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-2.5">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#E8470A]" />
                     <div>
@@ -248,6 +249,51 @@ export default function HeroSection() {
 
           </motion.div>
         </div>
+
+        {/* Full-width band — was trapped in left column; spans entire container */}
+        <motion.div
+          className="mt-10 lg:mt-12 w-full rounded-lg border border-[#E2DDD8] overflow-hidden shadow-sm"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.45, delay: 0.38 }}
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-[#E2DDD8]">
+            {trustHighlights.map(({ Icon, label }) => (
+              <div
+                key={label}
+                className="flex flex-col items-center justify-center gap-2 px-2 py-4 sm:px-3 sm:py-5 text-center bg-white min-h-[5.5rem]"
+              >
+                <Icon className="w-5 h-5 text-[#0A0A0A] shrink-0" strokeWidth={1.75} aria-hidden />
+                <span className="text-[11px] sm:text-xs font-semibold text-[#0A0A0A] leading-tight max-w-[9rem]">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="mt-8 lg:mt-10 w-full grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 sm:gap-x-8 lg:gap-x-10"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.45 }}
+        >
+          {[
+            { title: "Shop + Auctions + Guilds", sub: "Creator stack" },
+            { title: "Secure Payments", sub: "Encrypted checkout" },
+            { title: "Specialized Shipping", sub: "Art-safe logistics" },
+            { title: "Minimal Platform Fees", sub: "Keep more per sale" },
+            { title: "QR + NFC + On-chain", sub: "Verification methods" },
+            { title: "Transparent Pricing", sub: "No hidden fees" },
+            { title: "Verified Community", sub: "Trusted creators" },
+            { title: "Free Android Download", sub: "No app store needed" },
+          ].map((item, i) => (
+            <div key={i} className="min-w-0">
+              <p className="text-[#0A0A0A] font-bold text-sm leading-snug">{item.title}</p>
+              <p className="text-[#6B6560] text-xs mt-0.5">{item.sub}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* ══════════════════════════════════════
