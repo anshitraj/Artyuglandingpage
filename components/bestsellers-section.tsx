@@ -74,51 +74,55 @@ type Bestseller = {
 const bestsellers: Bestseller[] = [
   {
     id: "1",
-    artist: "Dan Hobday",
-    title: "Sun Set, Abstract Painting",
-    price: "₹4,299",
-    wasPrice: "₹4,799",
+    artist: "Artyug Curated",
+    title: "Orange Signature Drops",
+    price: "\u20B918,500",
+    wasPrice: "\u20B921,000",
     discountLabel: "10% off",
     imageDefault:
-      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900",
     imageHover:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=900",
     hoverKind: "lifestyle",
   },
   {
     id: "2",
-    artist: "Studio Collective",
-    title: "Botanical Art Set of 6, Floral Series",
-    price: "₹2,200",
+    artist: "Artyug Curated",
+    title: "Urban Fragments",
+    price: "\u20B912,900",
+    wasPrice: "\u20B914,400",
+    discountLabel: "10% off",
     imageDefault:
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80&auto=format&fit=crop",
-    hoverKind: "diagram",
+      "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=900",
+    imageHover:
+      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900",
+    hoverKind: "lifestyle",
   },
   {
     id: "3",
-    artist: "Mira Sen",
-    title: "Monsoon Blues, Limited Edition",
-    price: "₹6,450",
-    wasPrice: "₹7,200",
+    artist: "Artyug Curated",
+    title: "Future Miniatures",
+    price: "\u20B99,800",
+    wasPrice: "\u20B910,900",
     discountLabel: "10% off",
     imageDefault:
-      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=900",
     imageHover:
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900",
     hoverKind: "lifestyle",
   },
   {
     id: "4",
-    artist: "Arjun Mehta",
-    title: "Urban Geometry No. 12",
-    price: "₹3,890",
-    wasPrice: "₹4,299",
+    artist: "Artyug Curated",
+    title: "Artyug Originals",
+    price: "\u20B922,000",
+    wasPrice: "\u20B924,500",
     discountLabel: "10% off",
     isNew: true,
     imageDefault:
-      "https://images.unsplash.com/photo-1549887534-1541e9326642?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900",
     imageHover:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=900",
     hoverKind: "lifestyle",
   },
 ]
@@ -275,3 +279,5 @@ export default function BestsellersSection() {
     </section>
   )
 }
+
+
