@@ -11,7 +11,7 @@ Next.js landing website for Artyug.
 
 ## Getting Started
 
-1. Install dependencies:
+1. Install dependencies:-
 
 ```bash
 npm install
